@@ -1,0 +1,23 @@
+#### Note: f3 tests were performed in R with the following model. See data: https://zenodo.org/api/records/10529160/draft/files/f3-745sample.nonrep.ld.maf0.05.rand50k.auto.zip/content #### 
+
+> library(admixtools)
+> library(tidyverse)
+> prefix = '745sample.nonrep.ld.maf0.05.rand50k.auto'
+> my_f2_dir = '745sample.nonrep.ld.maf0.05.rand50k.autoforf3'
+> extract_f2(prefix, my_f2_dir)
+49k SNPs read...
+✔ 50000 SNPs read in total
+! 50000 SNPs remain after filtering. 50000 are polymorphic.
+ℹ Allele frequency matrix for 50000 SNPs and 65 populations is 30 MB
+ℹ Computing pairwise f2 for all SNPs and population pairs requires 3849 MB RAM without splitting
+ℹ Computing without splitting since 3849 < 8000 (maxmem)...
+ℹ Data written to 745sample.nonrep.ld.maf0.05.rand50k.autoforf3/
+Warning messages:
+1: In get_block_lengths(afdat$snpfile[sp, ], blgsize = blgsize) :
+  No genetic linkage map found! Defining blocks by base pair distance of 2e+06
+2: In get_block_lengths(afdat$snpfile[sn, ], blgsize = blgsize) :
+  No genetic linkage map found! Defining blocks by base pair distance of 2e+06
+> f2_blocks = f2_from_precomp(my_f2_dir)
+ℹ Reading precomputed data for 65 populations...
+ℹ Reading f2 data for pair 2145 out of 2145...
+> write.table(f3(f2_blocks) ,"745sample.nonrep.ld.maf0.05.rand50k.autoforf3.out.txt" ,row.names = F,col.names=T,quote=FALSE)
