@@ -1,4 +1,5 @@
-#### Note: f3 tests were performed in R with the following model. See data: https://zenodo.org/api/records/10529160/draft/files/f3-745sample.nonrep.ld.maf0.05.rand50k.auto.zip/content #### 
+#### Note: f3 tests were performed in R with the following model. 
+### data: https://zenodo.org/api/records/10529160/draft/files/f3-745sample.nonrep.ld.maf0.05.rand50k.auto.zip/content 
 
 > library(admixtools)
 > library(tidyverse)
