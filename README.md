@@ -9,7 +9,7 @@ College of Animal Science and Technology, Huazhong Agricultural University, PR C
 Department of Ecology and Evolution, The University of Chicago, Chicago, Illinois, USA (current).
 
 
-At 10 years ago (2014), I proposed the project of "The genomic profile for South Asian wild boar and domestic pigs' and got supports from my supervisor Dr. Shuhong Zhao. 
+At 10 years ago (2014), I proposed the project of "The genomic profile for wild boar and domestic pigs from South Asia and Southeast Asia' and got substantial supports from my supervisor Dr. Shuhong Zhao. 
 
 Then I received great academic input from Dr. Jianlin Han. 
 
