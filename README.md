@@ -10,7 +10,7 @@ Department of Ecology and Evolution, The University of Chicago, Chicago, Illinoi
 
 Ten years ago, in 2014, inspired by Dr. Greger Larson's pioneering study on the global phylogeography of wild boars published in SCIENCE in 2005, I initiated a project titled "The Genomic Profile of Wild Boar and Domestic Pigs from South Asia and Southeast Asia." 
 
-This endeavor was fortunate to receive significant support from my mentor, Dr. Shuhong Zhao, and invaluable academic insights from Dr. Jianlin Han.
+This endeavor was fortunate to receive significant support from my mentor, Dr. Shuhong Zhao, and invaluable academic insights from Dr. Jianlin Han and all other coauthors.
 
 Now, in 2024, as we near the completion of this project, our findings challenge the traditionally accepted origins of wild boars.
 
