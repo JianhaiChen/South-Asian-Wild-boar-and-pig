@@ -30,3 +30,8 @@ This page includes the primary pipeline for population genomics in South Asian w
 
 Also see our extensive documents on this project:
 https://github.com/JianhaiChen/South-Asian-Wild-boar-and-pig/wiki
+
+Reference:
+
+Rothschild, Max Frederick, and Anatoly Ruvinsky, eds. The genetics of the pig. CABI, 2011
+Larson G, Dobney K, Albarella U, Fang M, Matisoo-Smith E, Robins J, Lowden S, Finlayson H, Brand T, Willerslev E, Rowley-Conwy P, Andersson L, Cooper A. Worldwide phylogeography of wild boar reveals multiple centers of pig domestication. Science. 2005 Mar 11;307(5715):1618-21. doi: 10.1126/science.1106927. PMID: 15761152.
