@@ -14,11 +14,11 @@ grep sa ingroupmafover0site.frq.strat |awk '{print $2,$6}' >saallsamplefq&
  grep msea ingroupmafover0site.frq.strat |awk '{print $6}' >mseaallsamplefq&
 
 #### get the number of all SNPs within each populations
-awk '$1>0' eaallsamplefq |wc -l > eaallsamplefq.stat &
-awk '$1>0' euallsamplefq |wc -l > euallsamplefq.stat &
-awk '$2>0' saallsamplefq |wc -l  > saallsamplefq.stat &
-awk '$1>0' iseaallsamplefq |wc -l > iseaallsamplefq.stat &
-awk '$1>0' mseaallsamplefq |wc -l > mseaallsamplefq.stat &
+awk '$1>0.05' eaallsamplefq |wc -l > eaallsamplefq.stat &
+awk '$1>0.05' euallsamplefq |wc -l > euallsamplefq.stat &
+awk '$2>0.05' saallsamplefq |wc -l  > saallsamplefq.stat &
+awk '$1>0.05' iseaallsamplefq |wc -l > iseaallsamplefq.stat &
+awk '$1>0.05' mseaallsamplefq |wc -l > mseaallsamplefq.stat &
 
 #### how many SNPs in non-South Asian pops could be found in South Asian pop?
 
