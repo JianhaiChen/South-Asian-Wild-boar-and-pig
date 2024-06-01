@@ -12,7 +12,7 @@ Ten years ago, in 2014, I decided to initiate a project about "The Genomic analy
 
 This endeavor was fortunate to receive significant support from my mentor, Dr. Shuhong Zhao, and invaluable academic insights from Dr. Jianlin Han and all other coauthors.
 
-Now, in 2024, as we near the completion of this project, our findings challenge the traditionally accepted origins of wild boars.
+Now, in 2024, as we near the completion of this project, our findings suggest an alternative possiblity to the traditionally accepted origins of wild boars.
 
 
 We present evidence supporting an 'Out of South Asia' origin for the global wild boar populations, marking a departure from the long-established historical narrative.
