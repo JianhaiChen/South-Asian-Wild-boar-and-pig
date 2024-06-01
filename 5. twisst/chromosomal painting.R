@@ -1,0 +1,7 @@
+library(karyoploteR)
+rawdata <- read.table("durocref.col1knewcolor",header = F,stringsAsFactors = F)
+names(rawdata) <- c("chr","start","end","type","clo")
+Pig11 <- toGRanges("durocref.chr.txt")
+##kpAddBaseNumbers(kp) 
+kp <- plotKaryotype(genome = Pig11,plot.type=6)
+kpPlotRegions(kp, rawdata, col=rawdata$clo)
