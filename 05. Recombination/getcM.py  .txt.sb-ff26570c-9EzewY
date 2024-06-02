@@ -1,0 +1,29 @@
+cat rec_merge/rate_in_cM_per_Mb/getcM.py 
+import numpy as np
+import sys
+cM_ref=[139.75,120.5,115.25,120,109.75,142.25,128,114,122.75,103.25,82.75,94.5,112.25,120.75,109.5,82.25,76,60.5]
+
+chr_i=sys.argv[1]
+fin="../rmap/domes.chr"+chr_i+".rmap"
+fout="chr"+chr_i+".rmap"
+pyro_output=np.loadtxt(fin)
+
+# compute total map length
+pyro_map_length = ((pyro_output[:, 1] - pyro_output[:, 0])* pyro_output[:, 2]).sum()
+
+# calculate multiplier to get the right map length in cM
+tortereau_map_length = cM_ref[int(chr_i)-1]
+multiplier = tortereau_map_length / pyro_map_length
+
+# adjust the rates, need to multiply by 1 million to get
+# cM / Mb instead of cM / bp
+rates_in_cM_per_Mb = pyro_output[:, 2] * multiplier * 1e6
+rate_4 = pyro_output[:, 2]  * 1e4
+rate_8 = pyro_output[:, 2]  * 1e8
+mul=np.array(rates_in_cM_per_Mb).reshape(len(rates_in_cM_per_Mb),1)
+rate4=np.array(rate_4).reshape(len(rate_4),1)
+rate8=np.array(rate_8).reshape(len(rate_8),1)
+
+newdata=np.hstack((pyro_output,mul,rate4,rate8))
+
+np.savetxt(fout,newdata, fmt=['%d']*2+['%e']+['%f']+['%e']+['%f'],delimiter ="\t",header="START\tEND\trec_ori\trec_multi\trec_4\t_rec_8")
