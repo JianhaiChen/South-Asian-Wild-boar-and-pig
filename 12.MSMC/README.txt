@@ -1,0 +1,2 @@
+plot_rate_MAR_CCS.pl #convert the CCR into real time with mutation rates and generation time.
+plot_rate_MAR_Ne.pl #Convert MSMC2 single population statistics to corresponding real-time and effective population size based on mutation rate and generation time

@@ -1,0 +1,1 @@
+~/01.software/RectChr-1.36/bin/RectChr -InConfi in.cofi -OutPut OUT
