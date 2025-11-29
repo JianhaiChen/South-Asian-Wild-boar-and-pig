@@ -2,7 +2,7 @@
 ## For calculating population history with the X chromosome, use the 'estimate' parameter, and multiply the population history obtained from the CSV file by 3/4; For calculating autosomal chromosome population history, use the 'cv' parameter.
 ##smc++
 smc++ vcf2smc -c 1000000 /home/cyxiao/00newpig_2020_june/snpdata/743sample_chr/chrX.vcf.gz smc/chrX.smc.gz X pop:awbanw6,adbann2,adbann5,awpak1,adbant4,adnephw15,adnepcm1,awnep4F,adnephe11,adnephe6,awsri3,awbanw2
-smc++ estimate -o pop 2.5e-8 smc/*smc.gz --polarization-error 0.5
+smc++ estimate -o pop  smc/*smc.gz --polarization-error 0.5
 smc++ plot pop.pdf --csv pop/model.final.json
 
 
@@ -23,3 +23,4 @@ pyrho hyperparam -n 24 --mu 2.5e-8 --blockpenalty 10,15,20,25,30,35,40,45,50,55,
 
 ##cal_rec
 pyrho optimize --tablefile pop_lookuptable.hdf --vcffile chrX.vcf.gz --ploidy 2 --outfile chrX.rmap --blockpenalty 100 --windowsize 100 --logfile . --numthreads 3
+
