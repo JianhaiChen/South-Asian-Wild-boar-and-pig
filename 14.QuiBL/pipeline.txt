@@ -1,0 +1,32 @@
+
+#The pipeline follows the manual of QuIBL https://github.com/miriammiyagi/QuIBL
+
+#phylogenetic tree was computed at first with 1000 SNPs window size for 1000 random windows.
+
+for i in x*; do (cd $i; bash nj.sh ;cd ..); done;
+
+    for i in *tree.f; do (cd $i; cp ../../sub.sh .; cp ../../QuIBL_pygmy.cfg .;  ln -s ../../../QuIBL . ;  csub < sub.sh; cd ..) ; done;
+
+
+##### bootstrap and 95% CI########
+for i in {1..100}; do shuf -n 500 trees3k > bt.$i.tree;done
+     mkdir bootstrap100-1kwindow
+     mv bt* bootstrap100-1kwindow/
+     cd bootstrap100-1kwindow
+
+for i in *tree; do mkdir $i.f; mv $i $i.f; done;
+for i in *tree.f; do (cd $i; cp ../../sub.sh .; cp ../../QuIBL_pygmy.cfg .;  ln -s ../../../QuIBL . ; cp *tree trees.nwk; csub < sub.sh; cd ..) ; done;
+for i in */; do (cd $i; python2 QuIBL/analysis/perlocus_formatter.commas.py trees.nwk QuIBL_pygmy_out.csv awpak1,sus02,ogverg2  per_locus.csv pygmy5 ; cd ..); done;
+for i in */; do (cd $i; Rscript QuIBL/analysis/summaryFileAnalysis.R     -i QuIBL_pygmy_out.csv     -o summary     -t pygmy5 > QuIBL_pygmy_out.csv.summary; cd ..); done
+cat */QuIBL_pygmy_out.csv.summary|grep "Proportion of all trees arising via introgression"|sed 's/"//g'|awk '{print $NF}'|sort -k1,1n|awk '$1>0' > proportion
+
+###The following was computed in R
+
+ boot=read.table ("proportion")
+ x <- boot[[1]] 
+ ci <- quantile(x, c(0.025, 0.975))
+ ci
+
+
+      2.5%      97.5% 
+0.08118888 0.13521868 
