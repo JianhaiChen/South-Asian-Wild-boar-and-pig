@@ -1,5 +1,5 @@
 # The sensitivity analysis was conducted by removing deciles of recombination rates from low to high, 10-20%, 30-40%,50-60%, 70-80%, 90-100%
-# The following steps are for preparing files of AdmixtureBayes.
+# The following steps are for preparing files of AdmixtureBayes. The autolowe*.bed file is the recombonation bin that you want to exclude.
 plink -bfile  total_chromsnorepbiallic --extract range ../chrall.rb.pigall.bed --exclude range  autolowe*.bed   --thin-count 50000 --keep popwild1sample   -make-bed -out popwild1deci; awk '{print $1,$4-1,$4,NR}'  popwild1deci.bim|sed 's/ /\t/g' > popwild1deci.region.bed
   bcftools view -R popwild1deci.region.bed  -S popwild1  total_chromsnorep.vcf.gz > total_chromsnorep.allsnp.vcf
    Rscript convcf2allecount.R total_chromsnorep.allsnp.vcf pct 
