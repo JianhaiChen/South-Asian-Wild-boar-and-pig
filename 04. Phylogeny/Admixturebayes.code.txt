@@ -1,0 +1,76 @@
+# The sensitivity analysis was conducted by removing deciles of recombination rates from low to high, 10-20%, 30-40%,50-60%, 70-80%, 90-100%
+# The following steps are for preparing files of AdmixtureBayes.
+plink -bfile  total_chromsnorepbiallic --extract range ../chrall.rb.pigall.bed --exclude range  autolowe*.bed   --thin-count 50000 --keep popwild1sample   -make-bed -out popwild1deci; awk '{print $1,$4-1,$4,NR}'  popwild1deci.bim|sed 's/ /\t/g' > popwild1deci.region.bed
+  bcftools view -R popwild1deci.region.bed  -S popwild1  total_chromsnorep.vcf.gz > total_chromsnorep.allsnp.vcf
+   Rscript convcf2allecount.R total_chromsnorep.allsnp.vcf pct 
+
+### The follwing codes are for computing in a large server:
+#!/bin/bash
+#CSUB -J myjobDXY
+#CSUB -q c01
+#CSUB -o %J.out
+#CSUB -e %J.error
+#CSUB -n 2
+#CSUB -R "span[hosts=1]"
+source ~/.bashrc
+conda activate  base
+
+
+
+
+###############################################
+# Settings
+###############################################
+PREFIX="pct"
+STEPS=2000000
+CHAINS=10
+OUT="${PREFIX}_MCMC"
+
+echo "[INFO] Running AdmixtureBayes:"
+echo "       PREFIX=${PREFIX}"
+echo "       CHAINS=${CHAINS}"
+echo "       STEPS=${STEPS}"
+
+###############################################
+# Run MCMC (3 chains)
+###############################################
+python admixturebayes/runMCMC.py \
+    --input_file ${PREFIX} \
+    --outgroup Warthog \
+    --n ${STEPS} \
+    --MCMC_chains ${CHAINS} \
+    --result_file ${OUT}
+
+echo "[INFO] MCMC finished. Output file: ${OUT}"
+
+###############################################
+# Analyze posterior
+###############################################
+python admixturebayes/analyzeSamples.py \
+    --mcmc_results ${OUT} \
+    --burn_in_fraction 0.5 \
+    --thinning_rate 5 \
+    --result_file ${PREFIX}.thinned.csv
+
+echo "[INFO] Thinned posterior saved to ${PREFIX}.thinned.csv"
+
+###############################################
+# Plot top trees
+###############################################
+python admixturebayes/makePlots.py \
+    --plot top_trees \
+    --posterior ${PREFIX}.thinned.csv \
+    --top_trees_to_plot 5 \
+    --write_rankings ${PREFIX}.rankings.txt
+
+###############################################
+# Plot consensus trees
+###############################################
+python admixturebayes/makePlots.py \
+    --plot consensus_trees \
+    --posterior ${PREFIX}.thinned.csv \
+    --consensus_thresholds 0.3 0.5 0.7 \
+    --write_rankings ${PREFIX}.consensus.rankings.txt
+
+echo "[INFO] All analyses completed successfully."
+
