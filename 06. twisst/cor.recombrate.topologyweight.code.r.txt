@@ -1,0 +1,57 @@
+> library(data.table)
+> 
+> b1 <- fread(
++   cmd = paste(
++     "gzcat",
++     shQuote("/Volumes/S840/04mypaper/02东南亚/2nd/p1-twist-inversion/duroc.sus/44.durcref.sus.saw.iseaw.msea.1k.25.5k/top1.top2.top3.1k.weigth.rbpigall.gz")
++   )
++ )
+|--------------------------------------------------|
+|==================================================|
+> cor.test(~V7 + V6, data = subset(b1, V1 != "X"), method = "spearman")
+
+	Spearman's rank correlation rho
+
+data:  V7 and V6
+S = 7.1631e+21, p-value < 2.2e-16
+alternative hypothesis: true rho is not equal to 0
+sample estimates:
+      rho 
+0.2424561 
+
+
+> cor.test(~V7 + V6, data = subset(b1, V1 == "X"), method = "spearman")
+
+	Spearman's rank correlation rho
+
+data:  V7 and V6
+S = 2.1741e+17, p-value < 2.2e-16
+alternative hypothesis: true rho is not equal to 0
+sample estimates:
+      rho 
+0.4998996 
+
+
+> cor.test(~V7 + V5, data = subset(b1, V1 == "X"), method = "spearman")
+
+	Spearman's rank correlation rho
+
+data:  V7 and V5
+S = 6.824e+17, p-value < 2.2e-16
+alternative hypothesis: true rho is not equal to 0
+sample estimates:
+      rho 
+-0.569717 
+
+
+> cor.test(~V7 + V5, data = subset(b1, V1 != "X"), method = "spearman")
+
+	Spearman's rank correlation rho
+
+data:  V7 and V5
+S = 1.21e+22, p-value < 2.2e-16
+alternative hypothesis: true rho is not equal to 0
+sample estimates:
+       rho 
+-0.2796101 
+
