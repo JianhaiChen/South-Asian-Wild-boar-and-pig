@@ -1,57 +1,62 @@
 > library(data.table)
-> 
+
 > b1 <- fread(
 +   cmd = paste(
 +     "gzcat",
-+     shQuote("/Volumes/S840/04mypaper/02东南亚/2nd/p1-twist-inversion/duroc.sus/44.durcref.sus.saw.iseaw.msea.1k.25.5k/top1.top2.top3.1k.weigth.rbpigall.gz")
++     shQuote("top1.top2.top3.1k.weigth.rbpigall.gz")
 +   )
 + )
-|--------------------------------------------------|
-|==================================================|
-> cor.test(~V7 + V6, data = subset(b1, V1 != "X"), method = "spearman")
+
+
+
+> b1_median <- b1[
+  ,
+  .(V7_median = median(V7, na.rm = TRUE)),
+  by = .(V1, V2, V3,V4,V5,V6)
+]
+> cor.test(~ V7_median + V6, data = subset(b1_median, V1 == "X"), method = "spearman")
 
 	Spearman's rank correlation rho
 
-data:  V7 and V6
-S = 7.1631e+21, p-value < 2.2e-16
+data:  V7_median and V6
+S = 8490649039, p-value < 2.2e-16
 alternative hypothesis: true rho is not equal to 0
 sample estimates:
       rho 
-0.2424561 
+0.4523413 
 
 
-> cor.test(~V7 + V6, data = subset(b1, V1 == "X"), method = "spearman")
+> cor.test(~ V7_median + V6, data = subset(b1_median, V1 != "X"), method = "spearman")
 
 	Spearman's rank correlation rho
 
-data:  V7 and V6
-S = 2.1741e+17, p-value < 2.2e-16
+data:  V7_median and V6
+S = 1.6941e+14, p-value < 2.2e-16
 alternative hypothesis: true rho is not equal to 0
 sample estimates:
       rho 
-0.4998996 
+0.2658401 
 
-
-> cor.test(~V7 + V5, data = subset(b1, V1 == "X"), method = "spearman")
-
-	Spearman's rank correlation rho
-
-data:  V7 and V5
-S = 6.824e+17, p-value < 2.2e-16
-alternative hypothesis: true rho is not equal to 0
-sample estimates:
-      rho 
--0.569717 
-
-
-> cor.test(~V7 + V5, data = subset(b1, V1 != "X"), method = "spearman")
+> cor.test(~ V7_median + V5, data = subset(b1_median, V1 != "X"), method = "spearman")
 
 	Spearman's rank correlation rho
 
-data:  V7 and V5
-S = 1.21e+22, p-value < 2.2e-16
+data:  V7_median and V5
+S = 3.0491e+14, p-value < 2.2e-16
 alternative hypothesis: true rho is not equal to 0
 sample estimates:
        rho 
--0.2796101 
+-0.3213457 
+
+
+> cor.test(~ V7_median + V5, data = subset(b1_median, V1 == "X"), method = "spearman")
+
+	Spearman's rank correlation rho
+
+data:  V7_median and V5
+S = 2.3746e+10, p-value < 2.2e-16
+alternative hypothesis: true rho is not equal to 0
+sample estimates:
+      rho 
+-0.531679 
 
