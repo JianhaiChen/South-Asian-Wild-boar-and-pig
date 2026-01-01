@@ -3,7 +3,7 @@
 > b1 <- fread(
 +   cmd = paste(
 +     "gzcat",
-+     shQuote("/Volumes/S840/04mypaper/02东南亚/2nd/p1-twist-inversion/duroc.sus/44.durcref.sus.saw.iseaw.msea.1k.25.5k/top1.top2.top3.1k.weigth.rbpigall.gz")
++     shQuote("top1.top2.top3.1k.weigth.rbpigall.gz")
 +   )
 + )
 |--------------------------------------------------|
