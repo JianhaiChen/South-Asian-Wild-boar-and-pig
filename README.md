@@ -8,9 +8,9 @@ College of Animal Science and Technology, Huazhong Agricultural University, PR C
 
 Department of Ecology and Evolution, The University of Chicago, Chicago, Illinois, USA (current).
 
-Ten years ago, in 2014, I decided to initiate a project about "The Genomic analysis of Wild Boar and Domestic Pigs from South Asia and Southeast Asia" to understand wild boar origin and population genetics. 
+Ten years ago, in 2014, We decided to initiate a project about "The Genomic analysis of Wild Boar and Domestic Pigs from South Asia and Southeast Asia" to understand wild boar origin and population genetics. 
 
-This endeavor was fortunate to receive significant support from my mentor, Dr. Shuhong Zhao, and invaluable academic insights from Dr. Jianlin Han and all other coauthors.
+This endeavor was fortunate to receive significant support from my mentor, Dr. Shuhong Zhao, and invaluable academic insights from Dr. Jianlin Han and all other coauthors Dr. Xiaoyong Du, Zhuqing Zheng, et al,.
 
 Now, in 2024, as we near the completion of this project, our findings suggest an alternative possiblity to the traditionally accepted origins of wild boars.
 
