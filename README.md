@@ -4,9 +4,9 @@ Email: jianhaichen@uchicago.edu
 
 Affiliation:
 
-College of Animal Science and Technology, Huazhong Agricultural University, PR China (previous);
+College of Animal Science and Technology, Huazhong Agricultural University, PR China;
 
-Department of Ecology and Evolution, The University of Chicago, Chicago, Illinois, USA (current).
+Department of Ecology and Evolution, The University of Chicago, Chicago, Illinois, USA.
 
 Ten years ago, in 2014, We decided to initiate a project about "The Genomic analysis of Wild Boar and Domestic Pigs from South Asia and Southeast Asia" to understand wild boar origin and population genetics. 
 
