@@ -38,10 +38,12 @@ Rothschild, Max Frederick, and Anatoly Ruvinsky, eds. The genetics of the pig. C
 
 Larson G, Dobney K, Albarella U, Fang M, Matisoo-Smith E, Robins J, Lowden S, Finlayson H, Brand T, Willerslev E, Rowley-Conwy P, Andersson L, Cooper A. Worldwide phylogeography of wild boar reveals multiple centers of pig domestication. Science. 2005 Mar 11;307(5715):1618-21. doi: 10.1126/science.1106927. PMID: 15761152.
 
+
+--By Jian-Hai Chen, 2024
 ---
 
-This work is now accepted in *Science*: **Ancient introgression drives wild boar
-expansion and phenotypic diversification of domestic pigs.**
+2026 Sep Update: This work is now accepted in *Science*: **Ancient introgression drives wild boar
+expansion and phenotypic diversification of domestic pigs.** Please see: https://www.science.org/doi/10.1126/science.adq7553
 
 Jian-Hai Chen (Jianhai Chen), University of California, Irvine —
 [homepage](https://jianhaichen.github.io/) ·
